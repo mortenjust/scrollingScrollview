@@ -10,11 +10,48 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var collection: UICollectionView!
+    
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        collection.delegate = self
+        collection.dataSource = self
+        
+         
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionViewHeight.constant = collection.collectionViewLayout.collectionViewContentSize.height
+    }
+}
 
 
+
+
+extension UIViewController : UICollectionViewDelegate {
+    
+}
+
+
+extension UIViewController : UICollectionViewDataSource {
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 200
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        
+        cell.backgroundColor = UIColor.gray
+        
+        return cell
+        
+    }
+    
+    
 }
 

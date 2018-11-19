@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,74 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ScrollViewTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KnA-4I-awi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Eq-y9-PaQ">
+                                        <rect key="frame" x="0.0" y="372" width="375" height="295"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="295" id="0qK-i5-W6C"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="l2A-jU-olI">
+                                            <size key="itemSize" width="102" height="102"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="eco-QZ-Vws">
+                                                <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </view>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBi-tr-wQg">
+                                        <rect key="frame" x="148.5" y="162" width="78" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="78" id="IY2-ek-2Ty"/>
+                                            <constraint firstAttribute="height" constant="30" id="psN-PE-oSH"/>
+                                        </constraints>
+                                        <state key="normal" title="Play button"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="UBi-tr-wQg" firstAttribute="top" secondItem="KnA-4I-awi" secondAttribute="top" constant="162" id="26e-Ps-zZ2"/>
+                                    <constraint firstItem="UBi-tr-wQg" firstAttribute="centerX" secondItem="KnA-4I-awi" secondAttribute="centerX" id="396-fg-mNQ"/>
+                                    <constraint firstItem="7Eq-y9-PaQ" firstAttribute="centerX" secondItem="KnA-4I-awi" secondAttribute="centerX" id="E2P-xb-koD"/>
+                                    <constraint firstItem="7Eq-y9-PaQ" firstAttribute="width" secondItem="KnA-4I-awi" secondAttribute="width" id="Tzd-OU-99Q"/>
+                                    <constraint firstItem="7Eq-y9-PaQ" firstAttribute="top" secondItem="UBi-tr-wQg" secondAttribute="bottom" constant="180" id="k3b-lX-Vyf"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Eq-y9-PaQ" secondAttribute="bottom" id="qMA-f4-Qza"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Eq-y9-PaQ" secondAttribute="trailing" id="xBN-Bm-pzS"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KnA-4I-awi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="64m-a9-CpP"/>
+                            <constraint firstItem="KnA-4I-awi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SRf-wb-DKy"/>
+                            <constraint firstAttribute="trailing" secondItem="KnA-4I-awi" secondAttribute="trailing" id="rDw-tl-NvP"/>
+                            <constraint firstItem="KnA-4I-awi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="u9C-df-quV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="collection" destination="7Eq-y9-PaQ" id="6VN-4a-7Qq"/>
+                        <outlet property="collectionViewHeight" destination="0qK-i5-W6C" id="VkJ-LE-suV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>
